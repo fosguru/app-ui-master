@@ -1,0 +1,60 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html {
+  @apply h-full bg-stone-50 dark:bg-stone-900;
+}
+
+html.dark {
+  @apply bg-stone-900;
+}
+
+body {
+  @apply h-full;
+}
+
+#__nuxt, #__layout {
+  @apply h-full;
+}
+
+input {
+  background: transparent;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+[v-cloak] { display: none; }
+
+@supports (-webkit-overflow-scrolling: touch) {
+  input {
+    font-size: 16px !important;
+  }
+}
+a,button{
+  -webkit-tap-highlight-color: transparent;
+}
+
+.shimmer {
+  -webkit-mask:linear-gradient(-60deg ,#000 30%, #0005, #000 70%) right / 300% 100%;
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {-webkit-mask-position:left}
+}
+
+.prose { max-width: none; }

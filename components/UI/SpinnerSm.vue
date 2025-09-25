@@ -1,0 +1,75 @@
+<template>
+  <div v-show="loading" class="v-spinner">
+    <div class="v-clip" :style="spinnerStyle" />
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    loading: { type: Boolean, default: true },
+    color: { type: String, default: 'currentColor' },
+    size: { type: String, default: '35px' },
+    radius: { type: String, default: '100%' },
+  },
+
+  computed: {
+    spinnerStyle () {
+      return {
+        height: this.size,
+        width: this.size,
+        borderWidth: '2px',
+        borderStyle: 'solid',
+        borderColor: `${this.color} ${this.color} transparent`,
+        borderRadius: this.radius,
+        background: 'transparent',
+      }
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.v-spinner {
+  text-align: center;
+}
+
+.v-spinner .v-clip {
+  animation: v-clipDelay 0.75s 0s infinite linear;
+  animation-fill-mode: both;
+  display: inline-block;
+}
+.v-clip {
+  margin-bottom: -2px;
+}
+
+@-webkit-keyframes v-clipDelay {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) scale(0.8);
+    transform: rotate(180deg) scale(0.8);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes v-clipDelay {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) scale(0.8);
+    transform: rotate(180deg) scale(0.8);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1);
+  }
+}
+</style>
